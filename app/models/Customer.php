@@ -1,5 +1,5 @@
 <?php
-class Client
+class Customer
 {
   public $customerId;
   public $customerName;
