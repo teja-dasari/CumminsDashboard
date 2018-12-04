@@ -22,6 +22,5 @@ require 'models/ProductData.php';
 require 'models/PartsData.php';
 require 'models/PartsOrderStatus.php';
 require 'models/ProductsOrderStatus.php';
-require 'models/ProductsOrderStatus.php';
 require 'models/IOTData.php';
 require 'models/DefectCatalog.php';
