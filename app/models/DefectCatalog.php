@@ -9,7 +9,7 @@ class DefectCatalog
   public $actionTaken;
 
   public function __construct($data) {
-    $this->customerId = isset($data['defectID']) ? intval($data['defectID']) : null;
+    $this->defectID = isset($data['defectID']) ? intval($data['defectID']) : null;
     $this->productId = $data['productId'];
     $this->defectDate  = $data['defectDate '];
     $this->defectType = $data['defectType'];
