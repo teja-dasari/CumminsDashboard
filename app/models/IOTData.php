@@ -6,9 +6,9 @@ class IOTData
   public $fuelConsumption;
   public $oilStatus;
   public $batteryStatus;
-  public $engineStatus
-  public $defectType
-  public $defectID
+  public $engineStatus;
+  public $defectType;
+  public $defectID;
 
   public function __construct($data) {
     $this->productId = isset($data['productId']) ? intval($data['productId']) : null;
