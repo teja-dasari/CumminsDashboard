@@ -18,7 +18,10 @@ require 'models/SensorTimeSeriesTable.php';
 
 require 'models/Customer.php';
 require 'models/Vendor.php';
-// require 'models/ProductData.php';
-// require 'models/PartsData.php';
-// require 'models/PartsOrderStatus.php';
-// require 'models/ProductSOrderStatus.php';
+require 'models/ProductData.php';
+require 'models/PartsData.php';
+require 'models/PartsOrderStatus.php';
+require 'models/ProductsOrderStatus.php';
+require 'models/ProductsOrderStatus.php';
+require 'models/IOTData.php';
+require 'models/DefectCatalog.php';
