@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <title>Alternate Green Systems</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Site Information Page</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Client Information Page<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="turbine-info.html">Turbine Information Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="KpiTable.html">Turbine KPI Table Page</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <main id="clientTable">
+      <h2>Client Description Table</h2>
+      <table class="table table-hover clientTable">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Client Name</th>
+      <th scope="col" style="width:45%">Client Description</th>
+      <th scope="col">GICS Sector</th>
+      <th scope="col">GICS SubIndustry</th>
+      <th scope="col">Headquarters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="c in clients">
+      <th scope="row">{{c.clientId}}</th>
+      <td>{{c.clientName}}</td>
+      <td>{{c.clientDescription}}</td>
+      <td>{{c.gicsSector}}</td>
+      <td>{{c.gicsSubIndustry}}</td>
+      <td>{{c.headquarters}}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<h2>Client Notes Table</h2>
+<table class="table table-hover" id="clientNotesTable">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Meeting Date</th>
+<th scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="c in clientNotes">
+<th scope="row">{{c.clientName}}</th>
+<td>{{c.meetingDate}}</td>
+<td>{{c.notes}}</td>
+</tr>
+</tbody>
+</table>
+<form class="clientnotes" id="clientNotesForm" @submit.prevent="handleNotesForm">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputState">Choose Client</label>
+      <select id="clientName" class="form-control" v-model="notesForm.clientName">
+        <option v-for="c in clients" selected>{{c.clientName}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Meeting Date</label>
+      <input type="date" id="start" name="meeting" class="form-control"
+              value="" v-model="notesForm.meetingDate"
+              min="2018-10-31" max="2018-12-31">
+    </div>
+  <div class="form-group col-md-4">
+    <label for="inputAddress2">Notes</label>
+    <input type="text" class="form-control" id="clientnotes" v-model="notesForm.notes" placeholder="Updated meeting notes, progress etc.">
+  </div>
+    </div>
+  <button type="submit" class="btn btn-primary">Add Note</button>
+</form>
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+          <!-- Social buttons -->
+          <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+              &copy; Alternative Green Systems
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-fb mx-1">
+                <i class="fa fa-facebook"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-tw mx-1">
+                <i class="fa fa-twitter"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-gplus mx-1">
+                <i class="fa fa-google-plus"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-li mx-1">
+                <i class="fa fa-linkedin"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-dribbble mx-1">
+                <i class="fa fa-dribbble"> </i>
+              </a>
+            </li>
+          </ul>
+          <!-- Social buttons -->
+        </div>
+        <!-- Footer Elements -->
+
+      </footer>
+      <!-- Footer -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="js/client.app.js"></script>
+      <script src="js/tablesort.min.js"></script>
+      <script>
+      //tablesort plug from http://tristen.ca/tablesort/demo/
+        new Tablesort(document.getElementById('clientNotesTable'));
+      </script>
+  </body>
+  </html>

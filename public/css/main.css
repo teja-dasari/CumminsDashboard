@@ -1,0 +1,40 @@
+.clientnotes{
+  margin-top: 3%;
+  margin-bottom: 10%;
+  margin-left: 1%;
+}
+
+.bg-light{
+  background-color: 	#90EE90 !important;
+}
+.navbar{
+  color: #000 !important;
+}
+footer{
+  background-color: #000;
+  height: 100%;
+}
+.fa{
+  color: #fff !important;
+}
+.card{
+  margin-top: 20px;
+  padding: 10px;
+}
+.list-inline-item{
+  color: white
+}
+.btn-primary{
+  margin-top: 5px;
+  background-color: #90EE90!important;
+  color: black!important;
+  border-color: #90EE90!important;
+}
+.logo{
+  width:75px;
+  margin-right: 20px;
+}
+.clientTable, #clientNotesTable, h2, h4, h5, #turbineTable {
+  margin-left: 1%;
+  padding: 5px;
+}

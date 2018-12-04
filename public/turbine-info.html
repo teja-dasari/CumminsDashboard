@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <title>Alternate Green Systems</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Site Information Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clientinfo.html">Client Information Page</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Turbine Information Page<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="KpiTable.html">Turbine KPI Table Page</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <main id="turbine">
+      <table class="table table-hover" id="turbineTable">
+  <thead>
+    <tr>
+      <th scope="col">Turbine ID</th>
+      <th scope="col">Turbine Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Capacity</th>
+      <th scope="col">Ramp Up Time</th>
+      <th scope="col">Maintenance Interval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="turbine in turbines">
+      <th scope="row">{{turbine.turbineId}}</th>
+      <td>{{turbine.turbineName}}</td>
+      <td>{{turbine.turbineDescription}}</td>
+      <td>{{turbine.capacity}}</td>
+      <td>{{turbine.rampUpTime}}</td>
+      <td>{{turbine.maintenanceInterval}}</td>
+    </tr>
+  </tbody>
+</table>
+<h4 class="kpi-header">Key Performance Indicator Dashboard</h4>
+<div id="agsKPI">
+  <h5 class="client-header">Select the Deployed Turbine for KPI</h5>
+   <label for="country" class="col-md-3 col-form-label"></label>
+   <div class="col-md-4">
+     <select v-model="turbineId" v-on:change="fetchSensor(turbineId)">
+       <option v-for="turbine in turbines" v-bind:value="turbine.turbineId">
+         {{turbine.turbineId}}
+       </option>
+     </select>
+   </div>
+   <br />
+   <h5 class="client-header">Select the Deployed Sensor for KPI</h5>
+   <div class="col-md-4">
+     <select v-model="sensorDeployedId" v-on:change="fetchSensorTimeSeries(sensorDeployedId)">
+       <option v-for="sensor in sensors" v-bind:value="sensor.sensorDeployedId">
+         {{sensor.sensorDeployedId}}
+       </option>
+     </select>
+   </div>
+<div class="row">
+ <div id="outputChart" class="col-md-6"></div>
+ <div id="heatRateChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="compressorEfficiencyChart" class="col-md-6"></div>
+ <div id="availabilityChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="reliabilityChart" class="col-md-6"></div>
+ <div id="fixedHoursChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="tripsChart" class="col-md-6"></div>
+ <div id="startsChart" class="col-md-6"></div>
+</div>
+</div>
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+          <!-- Social buttons -->
+          <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+              &copy; Alternative Green Systems
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-fb mx-1">
+                <i class="fa fa-facebook"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-tw mx-1">
+                <i class="fa fa-twitter"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-gplus mx-1">
+                <i class="fa fa-google-plus"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-li mx-1">
+                <i class="fa fa-linkedin"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-dribbble mx-1">
+                <i class="fa fa-dribbble"> </i>
+              </a>
+            </li>
+          </ul>
+          <!-- Social buttons -->
+        </div>
+        <!-- Footer Elements -->
+
+      </footer>
+      <!-- Footer -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+      <!-- development version, includes helpful console warnings -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="js/turbine.app.js"></script>
+
+      <script src="js/tablesort.min.js"></script>
+  </body>
+  </html>
