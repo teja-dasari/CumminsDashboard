@@ -17,3 +17,8 @@ require 'models/Note.php';
 require 'models/SensorTimeSeriesTable.php';
 
 require 'models/Customer.php';
+require 'models/Vendor.php';
+require 'models/ProductData.php';
+require 'models/PartsData.php';
+require 'models/PartsOrderStatus.php';
+require 'models/ProductSOrderStatus.php';
