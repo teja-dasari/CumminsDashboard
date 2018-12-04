@@ -11,10 +11,10 @@ class DefectCatalog
   public function __construct($data) {
     $this->defectID = isset($data['defectID']) ? intval($data['defectID']) : null;
     $this->productId = $data['productId'];
-    $this->defectDate  = $data['defectDate '];
+    $this->defectDate  = $data['defectDate'];
     $this->defectType = $data['defectType'];
     $this->defectDescription = $data['defectDescription'];
-    $this->actionTaken= $data[' actionTaken'];
+    $this->actionTaken= $data['actionTaken'];
   }
   public static function fetchAll() {
     // 1. Connect to the database
