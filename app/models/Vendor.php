@@ -6,7 +6,7 @@ class Vendor
   public $vendorDescription;
   public $vendorLocation;
   public $vendorRating;
-  public $compliance
+  public $compliance;
 
   public function __construct($data) {
     $this->vendorId = isset($data['vendorId']) ? intval($data['vendorId']) : null;
