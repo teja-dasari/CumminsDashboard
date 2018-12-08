@@ -1,5 +1,5 @@
 <?php
-class IOTData
+class ServiceLog
 {
   public $rfidId;
   public $rfid;
