@@ -1,39 +1,35 @@
-var siteApp = new Vue({
-  el: '#site',
+var cumminsApp = new Vue({
+  el: '#iotDiv',
   data: {
-    sites:[
-      {
-      siteId : '',
-      clientId: '',
-      siteName: '',
-      siteDescription : '',
-      primaryContact : '',
-      capacity : '',
-      commercialDate : '',
-      addrLine1: '',
-      addrLine2: '',
-      addrCity: '',
-      addrState: '',
-      addrZip: '',
-      addrCountry: '',
-      imgPath:''
-    }
-  ]
+    iotdata: 
+      [
+        {
+          productId: 0,
+          productName: "",
+          fuelConsumption: "",
+          oilStatus: "",
+          batteryStatus: "e",
+          engineStatus: "",
+          defectType: "",
+          defectID: ''
+        }
+      ]
+
   },
   computed: {
   },
   methods: {
-    fetchSite () {
-      fetch('api/site.php')
+    fetchIotData () {
+      fetch('http://ec2-35-166-59-91.us-west-2.compute.amazonaws.com/api/iotdata.php')
       .then( response => response.json() )
-      .then( json => {siteApp.sites = json} )
+      .then( json => {cumminsApp.iotdata = json; console.log(json)} )
       .catch( err => {
-        console.log('TASK FETCH ERROR');
+        console.log('Data fetch error');
         console.log(err);
       })
     }
   },
   created () {
-    this.fetchSite();
+    this.fetchIotData();
   }
 })

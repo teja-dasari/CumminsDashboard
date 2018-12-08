@@ -23,4 +23,6 @@ require 'models/PartsData.php';
 require 'models/PartsOrderStatus.php';
 require 'models/ProductsOrderStatus.php';
 require 'models/IOTData.php';
+require 'models/emmissions.php';
+require 'models/serviceLog.php';
 require 'models/DefectCatalog.php';
