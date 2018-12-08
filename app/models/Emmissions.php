@@ -1,5 +1,5 @@
 <?php
-class IOTData
+class Emmissions
 {
   public $emmissionId;
   public $product;
