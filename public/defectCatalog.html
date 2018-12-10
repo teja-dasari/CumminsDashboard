@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/main.css">
+  <title>Cummins | IOT</title>
+</head>
+<body>
+  <div id="iotDiv">
+    <nav style="background: red;" class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a style="color: white" class="nav-link" href="portals.html">Home &nbsp;|<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a style="color: white" class="nav-link" href="#"><b>Manufacturing</b><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a style="color: white" class="nav-link" href="plp.html">Product Lines</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  <div class="row">
+            <div class="col-sm-8">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <!-- <th>Defect ID</th> -->
+                            <th>Product ID</th>
+                            <th>Defect Date</th>
+                            <th>Defect Type</th>
+                            <th>Defect Description</th>
+                            <th>Action Taken</th>
+                        </tr>
+                    </thead>
+                    <tbody v-if="defectCatalog">
+                        <tr>
+                            <td>{{defectCatalog.productId}}</td>
+                            <td>{{defectCatalog.defectDate}}</td>
+                            <td>{{defectCatalog.defectType}}</td>
+                            <td>{{defectCatalog.defectDescription}}</td>
+                            <td>{{defectCatalog.actionTaken}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="js/site.app.js"></script>
+  </body>
+  </html>

@@ -3,8 +3,6 @@ var cumminsApp = new Vue({
   data: {
     serviceLog: [],
     emmissions: [],
-    iotData: [],
-    defectCatalog: {},
     sensorTimeSeries: [
 				{
 	        sensorDeployedId: '',
@@ -36,24 +34,6 @@ var cumminsApp = new Vue({
       fetch('http://ec2-35-166-59-91.us-west-2.compute.amazonaws.com/api/emmissions.php')
       .then( response => response.json() )
       .then( json => {cumminsApp.emmissions = json; console.log(json)} )
-      .catch( err => {
-        console.log('Data fetch error');
-        console.log(err);
-      })
-    },
-    fetchIOTData () {
-      fetch('http://ec2-35-166-59-91.us-west-2.compute.amazonaws.com/api/iotdata.php')
-      .then( response => response.json() )
-      .then( json => {cumminsApp.iotData = json;} )
-      .catch( err => {
-        console.log('Data fetch error');
-        console.log(err);
-      })
-    },
-    fetchDefectCatalog () {
-      fetch('http://ec2-35-166-59-91.us-west-2.compute.amazonaws.com/api/defectcatalog.php')
-      .then( response => response.json() )
-      .then( json => {tempDefectCatalog = json; console.log(tempDefectCatalog[1]); cumminsApp.defectCatalog = tempDefectCatalog[1]} )
       .catch( err => {
         console.log('Data fetch error');
         console.log(err);
@@ -139,7 +119,55 @@ var cumminsApp = new Vue({
                 data: this.sensorTimeSeries.map( entry => [entry.dataCollectedDate.toString(), entry.availability])
             }]
         });
+            Highcharts.chart('sensorAvailabilityChart2', {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Availability for sensor 2'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Availability %'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1.3
+                            }
+                        },
+                        threshold: null
+                    }
+                },
 
+                series: [{
+                    type: 'area',
+                    name: 'Availability %',
+    								// data: [[1,55],[2,56],[3,67],[4,89]]
+                    data: this.sensorTimeSeries.map( entry => [entry.dataCollectedDate.toString(), entry.availability])
+                }]
+            });
 			},
       buildSensorReliability(){
           Highcharts.chart('sensorReliability', {
@@ -192,7 +220,55 @@ var cumminsApp = new Vue({
               }]
           });
 
+              Highcharts.chart('sensorReliability2', {
+                  chart: {
+                      zoomType: 'x'
+                  },
+                  title: {
+                      text: 'Availability for sensor 2'
+                  },
+                  yAxis: {
+                      title: {
+                          text: 'Availability %'
+                      }
+                  },
+                  legend: {
+                      enabled: false
+                  },
+                  plotOptions: {
+                      area: {
+                          fillColor: {
+                              linearGradient: {
+                                  x1: 0,
+                                  y1: 0,
+                                  x2: 0,
+                                  y2: 1
+                              },
+                              stops: [
+                                  [0, Highcharts.getOptions().colors[0]],
+                                  [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                              ]
+                          },
+                          marker: {
+                              radius: 2
+                          },
+                          lineWidth: 1,
+                          states: {
+                              hover: {
+                                  lineWidth: 1.3
+                              }
+                          },
+                          threshold: null
+                      }
+                  },
 
+                  series: [{
+                      type: 'area',
+                      name: 'Availability %',
+      								// data: [[1,55],[2,56],[3,67],[4,89]]
+                      data: this.sensorTimeSeries.map( entry => [entry.dataCollectedDate.toString(), entry.availability])
+                  }]
+              });
   			},
         buildCapacity(){
             Highcharts.chart('downtime', {
@@ -298,11 +374,8 @@ var cumminsApp = new Vue({
       			}
   },
   created () {
-    this.fetchServiceLogData();
     this.fetchEmmissionsData();
     this.formatSensorTime();
 			this.fetchSensorTimeSeries();
-      this.fetchIOTData();
-      this.fetchDefectCatalog();
   }
 })

@@ -9,85 +9,47 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="css/main.css">
-  <title>Alternate Green Systems</title>
+  <title>Cummins</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png"/></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Site Information Page<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="clientinfo.html">Client Information</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="turbine-info.html">Turbine Information</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="KpiTable.html">Turbine KPI Table Page</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-    <main id="site">
-      <div class="card-group">
-      <div class="card" v-for="s in sites">
-        <img class="card-img-top" v-bind:src="s.imgPath" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{s.siteName}}</h5>
-          <p class="card-text"><small class="text-muted">{{s.addrLine1}}, {{s.addrCity}}</small></p>
-          <p class="card-text">{{s.siteDescription}}</p>
-          <p>Turbine Name: 3SA.01</p>
-          <p>Status : <input class="btn btn-success" type="button" value="Good"></p>
-        </div>
+
+
+  <br><br><br><br>
+
+
+  <div class="container">
+
+      <img src="img/logo.png"/ width="90px;">
+      <br><br>
+      <!-- <h3>Welcome, please sign in!</h3> -->
+      <br><br>
+    <div class="row">
+      <div class="col-sm-7">
+        <form>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <button type="submit" class="btn btn-primary"><a style="color: white;"href="portals.html">Sign in</a></button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-    </main>
-    <!-- Footer -->
-    <footer class="page-footer font-small special-color-dark pt-4">
-        <!-- Footer Elements -->
-        <div class="container">
-          <!-- Social buttons -->
-          <ul class="list-unstyled list-inline text-center">
-            <li class="list-inline-item">
-              &copy; Alternative Green Systems
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-fb mx-1">
-                <i class="fa fa-facebook"> </i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-tw mx-1">
-                <i class="fa fa-twitter"> </i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-gplus mx-1">
-                <i class="fa fa-google-plus"> </i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-li mx-1">
-                <i class="fa fa-linkedin"> </i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-dribbble mx-1">
-                <i class="fa fa-dribbble"> </i>
-              </a>
-            </li>
-          </ul>
-          <!-- Social buttons -->
 
-        </div>
-        <!-- Footer Elements -->
-      </footer>
+</div>
+
       <!-- Footer -->
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script src="js/site.app.js"></script>

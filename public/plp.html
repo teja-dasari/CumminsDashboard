@@ -24,97 +24,86 @@
             <a style="color: white" class="nav-link" href="portals.html">Home &nbsp;|<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a style="color: white" class="nav-link" href="#"><b>Manufacturing</b><span class="sr-only">(current)</span></a>
+            <a style="color: white" class="nav-link" href="iot.html">Manufacturing<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a style="color: white" class="nav-link" href="plp.html">Product Lines</a>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" onclick="location.href='defectNotification.html'">
-              Defects <span class="badge badge-light">2</span>
-            </button>
+            <a style="color: white" class="nav-link" href="plp.html"><b>Product Lines</b></a>
           </li>
         </ul>
       </div>
     </nav>
 
 <br>
-<h4>EQUIPMENT PERFORMANCE</h4>
-<!-- <button class="btn btn-primary" onclick="href.location='defectNotification.html'">Defects</button> -->
-
+<h4>Emmissions</h4>
 
   <div class="row">
          <div class="col-sm-3">
              <div class="card">
                <div id="sensorAvailabilityChart" style="height:200px; "></div>
              </div>
+             Current Emmission Level: <h5>50</h5>
          </div>
          <div class="col-sm-3">
              <div class="card">
                <div id="sensorReliability" style="height:200px; "></div>
              </div>
+                    Current Emmission Level: <h5>40</h5>
          </div>
          <div class="col-sm-3">
              <div class="card">
                <div id="capacity" style="height:200px; "></div>
              </div>
+                    Current Emmission Level: <h5>70</h5>
          </div>
          <div class="col-sm-3">
              <div class="card">
                <div id="downtime" style="height:200px; "></div>
              </div>
+                    Current Emmission Level: <h5>80</h5>
          </div>
      </div>
      <br>
-     <h4>Service Log</h4>
+     <h4>Sensor Performance</h4>
 
      <div class="row">
-       <div class="col-sm-3 boxed">
-         <h3>RFID: 07DFGS78F98</h3>
-              <div class="row">
-         <div class="col-sm-4"><h4>92%</h4></div>
-         <div class="col-sm-4"><h4>3 Days</h4></div>
-         </div>
-       </div>
-       <div class="col-sm-1">
-         <h5>&nbsp;</h5>
-       </div>
-       <div class="col-sm-3 boxed">
-         <h3>RFID: 07DFGS78F98</h3>
-              <div class="row">
-         <div class="col-sm-4"><h4>92%</h4></div>
-         <div class="col-sm-4"><h4>3 Days</h4></div>
-         </div>
-       </div>
-       <div class="col-sm-1">
-         <h5>&nbsp;</h5>
-       </div>
-       <div class="col-sm-3 boxed">
-         <h3>RFID: 07DFGS78F98</h3>
-              <div class="row">
-         <div class="col-sm-4"><h4>92%</h4></div>
-         <div class="col-sm-4"><h4>3 Days</h4></div>
-         </div>
-       </div>
-     </div>
+            <div class="col-sm-3">
+                <div class="card">
+                  <div id="sensorAvailabilityChart2" style="height:200px; "></div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                  <div id="sensorReliability2" style="height:200px; "></div>
+                </div>
+            </div>
+        </div>
+
+     <br>
+     <h4>Emmission Compliance</h4>
+
+
 
   <div class="row">
             <div class="col-sm-8">
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>RFID #</th>
-                            <th>status</th>
-                            <th>lastServiceDate</th>
-                            <th>lastServiceDescription</th>
+                            <th>Product</th>
+                            <th># RFID Tags</th>
+                            <th>Avg. Emmissions</th>
+                            <th>EPA Compliant?</th>
+                            <th>NHTSA Compliant?</th>
+                            <th>CARB Compliant?</th>
                         </tr>
                     </thead>
-                    <tbody v-if="serviceLog">
-                        <tr v-for="item in serviceLog">
-                            <td>{{item.rfid}}</td>
-                            <td>{{item.status}}</td>
-                            <td>{{item.lastServiceDate}}</td>
-                            <td>{{item.lastServiceDescription}}</td>
+                    <tbody v-if="emmissions">
+                        <tr v-for="item in emmissions">
+                            <td>{{item.product}}</td>
+                            <td>{{item.numRfidTags}}</td>
+                            <td>{{item.avgEmmission}}</td>
+                            <td>{{item.epa}}</td>
+                            <td>{{item.nhtsa}}</td>
+                            <td>{{item.carb}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -122,12 +111,9 @@
         </div>
   </div>
 
-
-
-
       <!-- Footer -->
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
-      <script src="js/site.app.js"></script>
+      <script src="js/emissions.app.js"></script>
   </body>
   </html>

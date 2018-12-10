@@ -1,3 +1,49 @@
+body {
+  padding: 20px;
+}
+
+.centered {
+  padding: 30px;
+}
+
+.portalboxiot {
+  height: 80px;
+  background: crimson;
+  color: white;
+  /* text-align: center; */
+  /* vertical-align: center;? */
+}
+
+.portalboxiot2 {
+  height: 80px;
+  background: green;
+  color: white;
+  /* text-align: center; */
+  /* vertical-align: center;? */
+}
+
+.portalbox {
+  height: 80px;
+  background: #999999;
+  color: white;
+  /* text-align: center; */
+  /* vertical-align: center;? */
+}
+
+
+.portalbox2 {
+  height: 80px;
+  background: green;
+  color: white;
+  /* text-align: center; */
+  /* vertical-align: center;? */
+}
+
+.centered: hover {
+  color: #ffffff;
+  background-color: red;
+}
+
 .clientnotes{
   margin-top: 3%;
   margin-bottom: 10%;
@@ -14,6 +60,11 @@ footer{
   background-color: #000;
   height: 100%;
 }
+.boxed {
+  border: 1px black;
+  border-style: dotted;
+  color: black;
+}
 .fa{
   color: #fff !important;
 }
@@ -26,9 +77,10 @@ footer{
 }
 .btn-primary{
   margin-top: 5px;
-  background-color: #90EE90!important;
-  color: black!important;
-  border-color: #90EE90!important;
+  background-color: red !important;
+  color: white !important;
+  border-color: white;
+
 }
 .logo{
   width:75px;
