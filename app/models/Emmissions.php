@@ -1,8 +1,8 @@
 <?php
 class Emmissions
 {
-  public $emmissionId;
-  public $product;
+  public $supplierId;
+  public $supplier;
   public $numRfidTags;
   public $avgEmmission;
   public $epa;
@@ -10,8 +10,8 @@ class Emmissions
   public $carb;
 
   public function __construct($data) {
-    $this->emmissionId = isset($data['emmissionId']) ? intval($data['emmissionId']) : null;
-    $this->product = $data['product'];
+    $this->supplierId = isset($data['supplierId']) ? intval($data['supplierId']) : null;
+    $this->supplier = $data['supplier'];
     $this->numRfidTags = $data['numRfidTags'];
     $this->avgEmmission = $data['avgEmmission'];
     $this->epa = $data['epa'];

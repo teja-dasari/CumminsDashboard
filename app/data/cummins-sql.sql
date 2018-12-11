@@ -281,8 +281,8 @@ VALUES(	4,	4,	'test9F-06-IU0021',	'2000-02-16',	123543,	119,	'2016-06-01', '2015
 
 DROP TABLE IF EXISTS emmissions;
 CREATE TABLE emmissions (
-emmissionId INT PRIMARY KEY NOT NULL,
-product VARCHAR(255) NOT NULL,
+supplierId INT PRIMARY KEY NOT NULL,
+supplier VARCHAR(255) NOT NULL,
 numRfidTags VARCHAR(255) NOT NULL,
 avgEmmission INT NOT NULL,
 epa VARCHAR(10)NOT NULL,
@@ -290,8 +290,8 @@ nhtsa VARCHAR(10) NOT NULL,
 carb VARCHAR(10) NOT NULL
 );
 
-INSERT INTO emmissions (emmissionId,product,numRfidTags,avgEmmission,epa,nhtsa,carb)
-VALUES(1,	'See requirement doc','5.2M', 23432,	'Y',	'Y',	'N');
+INSERT INTO emmissions (supplierId,supplier,numRfidTags,avgEmmission,epa,nhtsa,carb)
+VALUES(1,	'Ford 350','5.2M', 23432,	'Y',	'Y',	'N');
 
 
 
