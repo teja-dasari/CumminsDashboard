@@ -95,11 +95,16 @@ var cumminsApp = new Vue({
                 zoomType: 'x'
             },
             title: {
-                text: 'Availability for sensor 2'
+                text: 'Capacity Utilization'
             },
             yAxis: {
                 title: {
-                    text: 'Availability %'
+                    text: 'Capacity Utilization %'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: 'Time'
                 }
             },
             legend: {
@@ -134,7 +139,7 @@ var cumminsApp = new Vue({
 
             series: [{
                 type: 'area',
-                name: 'Availability %',
+                name: 'Utilization %',
 								// data: [[1,55],[2,56],[3,67],[4,89]]
                 data: this.sensorTimeSeries.map( entry => [entry.dataCollectedDate.toString(), entry.availability])
             }]
@@ -147,11 +152,16 @@ var cumminsApp = new Vue({
                   zoomType: 'x'
               },
               title: {
-                  text: 'Availability for sensor 2'
+                  text: 'Sensor Reliability'
               },
               yAxis: {
                   title: {
-                      text: 'Availability %'
+                      text: 'Sensor Reliability'
+                  }
+              },
+              xAxis: {
+                  title: {
+                      text: 'Time'
                   }
               },
               legend: {
@@ -167,7 +177,7 @@ var cumminsApp = new Vue({
                               y2: 1
                           },
                           stops: [
-                              [0, Highcharts.getOptions().colors[0]],
+                              [0, Highcharts.getOptions().colors[1]],
                               [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
                           ]
                       },
@@ -186,7 +196,7 @@ var cumminsApp = new Vue({
 
               series: [{
                   type: 'area',
-                  name: 'Availability %',
+                  name: 'Reliability',
   								// data: [[1,55],[2,56],[3,67],[4,89]]
                   data: this.sensorTimeSeries.map( entry => [entry.dataCollectedDate.toString(), entry.availability])
               }]
@@ -200,11 +210,16 @@ var cumminsApp = new Vue({
                     zoomType: 'x'
                 },
                 title: {
-                    text: 'Availability for sensor 2'
+                    text: 'Downtime'
                 },
                 yAxis: {
                     title: {
-                        text: 'Availability %'
+                        text: 'Downtime'
+                    }
+                },
+                xAxis: {
+                    title: {
+                        text: 'Time'
                     }
                 },
                 legend: {
@@ -220,7 +235,7 @@ var cumminsApp = new Vue({
                                 y2: 1
                             },
                             stops: [
-                                [0, Highcharts.getOptions().colors[0]],
+                                [0, Highcharts.getOptions().colors[2]],
                                 [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
                             ]
                         },
@@ -251,11 +266,16 @@ var cumminsApp = new Vue({
                       zoomType: 'x'
                   },
                   title: {
-                      text: 'Availability for sensor 2'
+                      text: 'Capacity'
                   },
                   yAxis: {
                       title: {
-                          text: 'Availability %'
+                          text: 'Capacity'
+                      }
+                  },
+                  xAxis: {
+                      title: {
+                          text: 'Time'
                       }
                   },
                   legend: {
@@ -271,17 +291,17 @@ var cumminsApp = new Vue({
                                   y2: 1
                               },
                               stops: [
-                                  [0, Highcharts.getOptions().colors[0]],
+                                  [0, Highcharts.getOptions().colors[3]],
                                   [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
                               ]
                           },
                           marker: {
                               radius: 2
                           },
-                          lineWidth: 1,
+                          lineWidth: 0,
                           states: {
                               hover: {
-                                  lineWidth: 1.3
+                                  lineWidth: 0.2
                               }
                           },
                           threshold: null
@@ -290,7 +310,7 @@ var cumminsApp = new Vue({
 
                   series: [{
                       type: 'area',
-                      name: 'Availability %',
+                      name: 'Capacity',
       								// data: [[1,55],[2,56],[3,67],[4,89]]
                       data: this.sensorTimeSeries.map( entry => [entry.dataCollectedDate.toString(), entry.availability])
                   }]
