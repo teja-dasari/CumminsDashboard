@@ -352,7 +352,7 @@ var cumminsApp = new Vue({
                       zoomType: 'x'
                   },
                   title: {
-                      text: 'Availability for sensor 2'
+                      text: 'Availability'
                   },
                   yAxis: {
                       title: {

@@ -305,11 +305,11 @@ lastServiceDescription VARCHAR(10)NOT NULL
 );
 
 INSERT INTO serviceLog (rfidId, rfid, status, lastServiceDate, lastServiceDescription)
-VALUES(1,	'07DFGS78F98','Breakdown Detected', '7/24/18', 'Greased');
+VALUES(1,	'07DFGS78F98','Nearing Breakdown', '7/24/18', 'Greased');
 INSERT INTO serviceLog (rfidId, rfid, status, lastServiceDate, lastServiceDescription)
-VALUES(2,	'789FG7VVR5','Breakdown Detected', '8/16/18', 'New Part');
+VALUES(2,	'789FG7VVR5','Nearing Breakdown', '8/16/18', 'New Part');
 INSERT INTO serviceLog (rfidId, rfid, status, lastServiceDate, lastServiceDescription)
-VALUES(3,	'JHKFDGFGU4834','Breakdown Detected', '10/27/17', 'Sensor adjustment ');
+VALUES(3,	'JHKFDGFGU4834','Working Alright', '10/27/17', 'Sensor adjustment ');
 
 
 
